@@ -1,4 +1,8 @@
 test:
 	python -m unittest
 
-.PHONY: test
+run:
+	python rpn.py
+
+.PHONY: test run
+
