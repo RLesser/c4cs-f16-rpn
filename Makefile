@@ -1,5 +1,5 @@
 test:
-	python -m unittest test_rpn
+	coverage run -m unittest test_rpn
 
 run:
 	python rpn.py
