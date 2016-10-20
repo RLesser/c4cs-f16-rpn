@@ -2,14 +2,14 @@ language: python
 python:
   - "3.5"
 
-install:
-  pip install coveralls
+# install:
+#   pip install coveralls
 
 script:
-  coverage run -m unittest test_rpn
+  python -m unittest test_rpn
 
 notifications:
   email: false
 
-after_success:
-  coveralls
+# after_success:
+#   coveralls
