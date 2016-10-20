@@ -2,7 +2,7 @@ test:
 	coverage run -m unittest test_rpn
 
 run:
-	python rpn.py
+	python3 rpn.py
 
 .PHONY: test run
 

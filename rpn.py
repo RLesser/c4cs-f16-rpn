@@ -2,6 +2,7 @@
 
 import operator
 import readline
+import fractions
 
 
 operators = {
@@ -10,9 +11,16 @@ operators = {
 	'*': operator.mul,
 	'/': operator.truediv,
 	'^': operator.pow,
+	'f': fractions.Fraction
 }
 
+
+
+
 def calculate(myarg):
+	if myarg == 'q' or myarg == 'Q':
+		return 'quit'
+
 	stack = list()
 	for token in myarg.split():
 		try:
@@ -24,15 +32,21 @@ def calculate(myarg):
 			arg1 = stack.pop()
 			result = function(arg1, arg2)
 			stack.append(result)
-		print(stack)
+		#print(stack)
 	if len(stack) != 1:
 		raise TypeError("Too many parameters")
 	return stack.pop()
 
 def main():
-	while True:
+	quit = False;
+	fractionMode = True;
+	while not quit:
 		result = calculate(input("rpn calc> "))
-		print("Result: ", result)
+		if result == 'quit':
+			print("Goodbye!")
+			quit = True;
+		else:
+			print("Result: ", result)
 
 if __name__ == '__main__':
 	main()
